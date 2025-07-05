@@ -20,6 +20,10 @@ public class Biscuits extends Product implements Shippable, Expirable {
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
+        if (expirationDate.isBefore(LocalDate.now())){
+            System.out.println("Can not set expiration date before today");
+            return;
+        }
         this.expirationDate = expirationDate;
     }
 

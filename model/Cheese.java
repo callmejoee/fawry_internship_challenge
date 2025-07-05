@@ -20,8 +20,10 @@ public class Cheese extends Product implements Shippable, Expirable {
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
-        // leave the expiration date can be before today
-        // in case they want to sell an expired item
+        if (expirationDate.isBefore(LocalDate.now())){
+            System.out.println("Can not set expiration date before today");
+            return;
+        }
         this.expirationDate = expirationDate;
     }
 
