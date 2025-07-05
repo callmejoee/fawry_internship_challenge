@@ -14,6 +14,10 @@ public class Cart {
         this.items = items;
     }
 
+    public Cart() {
+        this.items = new ArrayList<>();
+    }
+
     public List<CartItem> getItems() {
         return items;
     }
@@ -30,6 +34,7 @@ public class Cart {
 
             if (quantity > product.getQuantity()) {
                 System.out.println("Not enough items in stock for " + product.getName());
+                return;
             }
 
             for (CartItem cartItem : items) {
