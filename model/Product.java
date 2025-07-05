@@ -1,6 +1,6 @@
 package model;
 
-public class Product {
+public abstract class Product {
     
     private String name;
     private double price;
@@ -12,16 +12,8 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
     public String getName(){
         return name;
-    }
-
-    public void setPrice(double price){
-        this.price = price;
     }
 
     public double getPrice(){
@@ -36,9 +28,8 @@ public class Product {
         return quantity;
     }
 
-    public void deductProduct(int quantity){
-        if (getQuantity() == 0){
-            System.out.println("model.Product is out of stock");
+    public void deductProduct(int quantity){if (getQuantity() == 0){
+            System.out.println("Product is out of stock" + this.getName());
             return;
         }
         else if (quantity <= 0){
