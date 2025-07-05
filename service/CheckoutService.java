@@ -2,7 +2,7 @@ package service;
 
 import model.Customer;
 import model.Expirable;
-import utils.shippingInfo;
+import utils.ShippingInfo;
 
 public class CheckoutService {
 
@@ -29,7 +29,7 @@ public class CheckoutService {
 
         ShippingService shipping = new ShippingService();
 
-        shippingInfo shippingInfo = shipping.calculateShipping(cart.getItems());
+        ShippingInfo shippingInfo = shipping.calculateShipping(cart.getItems());
 
         double shippingCost = shippingInfo.getCost();
 
