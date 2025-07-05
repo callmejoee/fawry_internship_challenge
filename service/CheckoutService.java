@@ -17,12 +17,10 @@ public class CheckoutService {
 
             if (item.getProduct() instanceof Expirable && ((Expirable) item.getProduct()).isExpired()) {
 
-                System.out.println("Item is expired: " + item.getProduct());
+                System.out.println("Item is expired: " + item.getProduct().getName());
                 return;
 
             }
-            item.getProduct().deductProduct(item.getQuantity());
-
         }
 
         double subTotal = cart.getSubTotal();
@@ -40,9 +38,34 @@ public class CheckoutService {
             return;
         }
 
+        for (CartItem item : cart.getItems()) {
+            item.getProduct().deductProduct(item.getQuantity());
+        }
+
         customer.deductBalance(total);
 
         shippingInfo.print();
+
+        System.out.println("** Checkout receipt **");
+
+        for (CartItem item : cart.getItems()) {
+
+            String name = item.getProduct().getName();
+            int quantity = item.getQuantity();
+            double price = item.getTotalPrice();
+
+            System.out.printf("%dx %s %.2f%n", quantity, name, price);
+
+        }
+
+        System.out.println("------------");
+        System.out.println("Subtotal " + subTotal);
+        System.out.println("Shipping " + shippingCost);
+        System.out.println("Amount " + total);
+
+        System.out.println("Remaining Balance: " + customer.getCurrentBalance());
+
+
 
 
     }
