@@ -18,6 +18,8 @@ public class Cheese extends Product implements Shippable, Expirable {
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
+        // leave the expiration date can be before today
+        // in case they want to sell an expired item
         this.expirationDate = expirationDate;
     }
 
@@ -27,6 +29,10 @@ public class Cheese extends Product implements Shippable, Expirable {
     }
 
     public void setWeight(double weight) {
+        if (weight < 0){
+            System.out.println("Weight can not be a value less than zero");
+            return;
+        }
         this.weight = weight;
     }
 }
