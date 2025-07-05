@@ -22,7 +22,15 @@ public class Cart {
     public void addItem(Product product, int quantity){
 
         try {
-            product.deductProduct(quantity); // validates and checks in class
+
+            if (quantity <= 0) {
+                System.out.println("Quantity can not be negative or zero");
+                return;
+            }
+
+            if (quantity > product.getQuantity()) {
+                System.out.println("Not enough items in stock for " + product.getName());
+            }
 
             for (CartItem cartItem : items) {
                 if (cartItem.getProduct().getName().equals(product.getName())) {
