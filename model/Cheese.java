@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 
 public class Cheese extends Product implements Shippable, Expirable {

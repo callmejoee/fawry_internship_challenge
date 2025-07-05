@@ -1,8 +1,10 @@
-public class Mobile extends Product implements Shippable {
+package model;
+
+public class TV extends Product implements Shippable {
 
     private double weight;
 
-    public Mobile(String name, Double price, Integer quantity, double weight) {
+    public TV(String name, Double price, Integer quantity, double weight) {
         super(name, price, quantity);
         this.weight = weight;
 

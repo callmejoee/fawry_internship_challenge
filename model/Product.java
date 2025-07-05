@@ -1,3 +1,5 @@
+package model;
+
 public class Product {
     
     private String name;
@@ -36,7 +38,7 @@ public class Product {
 
     public void deductProduct(int quantity){
         if (getQuantity() == 0){
-            System.out.println("Product is out of stock");
+            System.out.println("model.Product is out of stock");
             return;
         }
         else if (quantity <= 0){
@@ -48,7 +50,7 @@ public class Product {
             return;
         }
 
-        setQuantity(getQuantity() - quantity);
+        setQuantity(this.quantity - quantity);
     }
 
 }
