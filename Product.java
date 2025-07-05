@@ -34,4 +34,21 @@ public class Product {
         return quantity;
     }
 
+    public void deductProduct(int quantity){
+        if (getQuantity() == 0){
+            System.out.println("Product is out of stock");
+            return;
+        }
+        else if (quantity <= 0){
+            System.out.println("Please add a positive quantity");
+            return;
+        }
+        else if (getQuantity() < quantity){
+            System.out.println("Insufficient Quantity");
+            return;
+        }
+
+        setQuantity(getQuantity() - quantity);
+    }
+
 }
